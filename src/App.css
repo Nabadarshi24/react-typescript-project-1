@@ -1,0 +1,541 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #5029a8;
+  overflow-x: auto;
+}
+
+/* .clearfix {
+  content: "";
+  clear: both;
+  display: table;
+} */
+
+.custom-container {
+  display: flex;
+}
+
+.cardlist-add-section {
+  min-width: 290px;
+  height: 100%;
+  margin-left: 10px;
+}
+
+.MuiButton-root.cardlist-add-btn {
+  width: 100%;
+  background-color: #a2639f;
+  text-transform: none;
+  justify-content: left;
+}
+
+.MuiButton-root.cardlist-add-btn:hover {
+  background-color: #8f518c;
+}
+
+.list-add-controls {
+  background-color: aliceblue;
+  width: 100%;
+  padding: 5px;
+}
+
+.MuiOutlinedInput-input#outlined-basic {
+  height: 0.475em;
+  width: 100%;
+}
+
+.add-close-btn {
+  margin: 7px 0 0 37px;
+}
+
+.add-close-btn Button {
+  text-transform: none;
+}
+
+/* Cardlist design starts here */
+
+.card-list {
+  width: 290px;
+  min-width: 290px;
+  padding: 5px;
+  background-color: #ebecf0;
+  margin-left: 10px;
+  align-self: start;
+}
+
+#basic-button {
+  float: right;
+  margin-top: -5px;
+}
+
+.editable-card-title .MuiTextField-root {
+  width: 85%;
+}
+
+.MuiButton-root.move-btn {
+  margin-top: 10px;
+  text-transform: none;
+}
+
+.MuiSvgIcon-root {
+  cursor: pointer;
+}
+
+.MuiSvgIcon-root.menu-icon {
+  font-size: 21px;
+}
+
+.MuiSvgIcon-root.modal-close-btn {
+  font-size: 18px;
+  position: absolute;
+  right: 10px;
+}
+
+.css-13r4j3i .MuiTextField-root {
+  width: 100%;
+}
+
+.MuiSvgIcon-root.common-font-size {
+  font-size: 17px;
+  margin-left: 3px;
+}
+
+.title-edit-field .MuiOutlinedInput-input {
+  height: 0.475em;
+  padding: 10.5px 16px;
+}
+
+.MuiButton-root.bg-none {
+  width: 100%;
+  background-color: transparent;
+  color: black;
+  text-transform: none;
+  box-shadow: unset;
+  justify-content: left;
+  padding: 3px 10px;
+}
+
+.MuiButton-root.bg-none:hover {
+  background-color: #dadbe2;
+}
+
+.cardlist-footer {
+  margin-top: 10px;
+}
+
+/* ends-here */
+
+/* card-design starts here */
+
+.card {
+  cursor: pointer;
+  background-color: #fff;
+  font-size: 13px;
+}
+
+.card-labels {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.custom-font-size {
+  font-size: 14px;
+}
+
+.card-labels .card-label-item .MuiSvgIcon-root {
+  font-size: 11px;
+}
+
+.MuiButtonBase-root.customize-icon-btn {
+  padding: 0;
+}
+
+.card-label-item {
+  margin-right: 5px;
+  margin-top: 5px;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 0 4px 3px 3px;
+}
+
+.MuiSvgIcon-root.card-delete-icon {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 3px;
+  font-size: 17px;
+}
+
+.card:hover .MuiSvgIcon-root.card-delete-icon {
+  display: block;
+}
+
+.card-footer {
+  display: flex;
+  padding: unset;
+  border-top: unset;
+}
+
+.MuiSvgIcon-root.font-size {
+  font-size: 18px;
+}
+
+/* ends here */
+
+/* dialogue design starts here */
+
+.card-details {
+  background-color: #fff;
+}
+
+.dialogue-title {
+  display: flex;
+}
+
+.window-title {
+  width: 100%;
+}
+
+.window-title .MuiFormControl-root .MuiOutlinedInput-root {
+  margin-left: 15px;
+}
+
+.window-title .MuiFormControl-root .MuiOutlinedInput-root .MuiOutlinedInput-input {
+  height: 10px;
+  padding: 12px;
+}
+
+.window-title h2 {
+  font-size: 22px;
+  margin: 0px 0 0 15px;
+}
+
+.MuiSvgIcon-root.dialogue-icon-size {
+  font-size: 20px;
+}
+
+.window-header-inline-content {
+  margin-left: 38px;
+}
+
+.window-header-inline-content a {
+  color: #5e6c84;
+}
+
+/* dialogue main part design starts here */
+
+.dialogue-main-col {
+  width: 75%;
+  float: left;
+}
+
+.label-date-container {
+  margin: 20px 0 0 36px;
+}
+
+.label-item {
+  margin: 3px 0 0 3px;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 6px 6px 7px 5px;
+  border-radius: 3px;
+}
+
+.dialogue-main-col h3 {
+  font-size: 13px;
+  color: #5e6c84;
+}
+
+.MuiButton-root.label-btn {
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 25px;
+  letter-spacing: unset;
+  min-width: 30px;
+  padding: 0;
+  margin: 3px 0 0 3px;
+}
+
+.date-container-btn {
+  background-color: #e7e9ed;
+  display: inline-block;
+  padding: 4px 13px;
+  font-size: 14px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.date-container-btn:hover {
+  background-color: #d8dbe0;
+}
+
+.margin-right {
+  margin-right: 10px;
+}
+
+.desc-title {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.desc-title h3 {
+  font-size: 16px;
+  margin: 0 0 0 14px;
+}
+
+.MuiButton-root.edit-desc {
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 1px;
+  min-width: 30px;
+  padding: 4px 7px;
+  margin-left: 10px;
+  color: #5e6c84;
+  text-transform: none;
+  border: unset;
+  background-color: #e7e9ed;
+}
+
+.MuiButton-root.edit-desc:hover {
+  border: unset;
+  background-color: #d8dbe0;
+}
+
+.desc-field {
+  margin: 15px 0 0 36px;
+}
+
+.desc-content {
+  cursor: pointer;
+}
+
+.hidden-desc-btn {
+  margin-top: 10px;
+}
+
+.checklist {
+  margin-top: 20px;
+}
+
+.checklist-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.MuiTextField-root.checklist-title-edit {
+  margin-left: 13px;
+  width: calc(100% - 40px);
+}
+
+.checklist-title h3 {
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0 462px 0 0;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.checkllist-item-customize.MuiFormControlLabel-root {
+  height: 33px;
+}
+
+.checkllist-item-customize .MuiTypography-root {
+  margin-left: 4px;
+}
+
+.checklist-title-edit {
+  margin: 5px 0 0 36px;
+}
+
+.common-add-close-btn {
+  margin-top: 7px;
+  text-transform: none;
+}
+
+.common-add-close-btn .MuiButtonBase-root {
+  text-transform: none;
+}
+
+.checklist-add-container {
+  margin: 3px 0 0 2px;
+}
+
+.edit-delete-btn .MuiSvgIcon-root {
+  cursor: pointer;
+}
+
+.MuiButton-root.add-item-btn {
+  text-transform: none;
+  background-color: #caced7;
+  color: #637188;
+  padding: 4px 12px;
+  margin: 15px 0 0 36px;
+}
+
+.label-details {
+  text-align: center;
+}
+
+.label-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.MuiDialogContent-root.edit-dialog {
+  padding: 0 24px;
+}
+
+.label-body {
+  padding: 15px 0 24px 0;
+}
+
+.user-form .MuiTypography-root {
+  font-size: 14px;
+  padding: 8px 12px;
+  width: 100%;
+  border-radius: 5px;
+  text-align: left;
+}
+
+.user-form .MuiTypography-root .MuiSvgIcon-root {
+  font-size: 20px;
+}
+
+.edit-copy.card-label-item,
+.edit-copy.label-item,
+.edit-copy .MuiTypography-root {
+  background-color: #faf3c0;
+}
+
+.edit-copy.card-label-item .MuiSvgIcon-root,
+.edit-copy.label-item .MuiSvgIcon-root,
+.edit-copy .MuiTypography-root .MuiSvgIcon-root {
+  color: #f5dd29;
+}
+
+.edit-step.card-label-item,
+.edit-step.label-item,
+.edit-step .MuiTypography-root {
+  background-color: #fce6c6;
+}
+
+.edit-step.card-label-item .MuiSvgIcon-root,
+.edit-step.label-item .MuiSvgIcon-root,
+.edit-step .MuiTypography-root .MuiSvgIcon-root {
+  color: #ffaf3f;
+}
+
+.edit-priority.card-label-item,
+.edit-priority.label-item,
+.edit-priority .MuiTypography-root {
+  background-color: #f5d3ce;
+}
+
+.edit-priority.card-label-item .MuiSvgIcon-root,
+.edit-priority.label-item .MuiSvgIcon-root,
+.edit-priority .MuiTypography-root .MuiSvgIcon-root {
+  color: #ef7564;
+}
+
+.edit-design.card-label-item,
+.edit-design.label-item,
+.edit-design .MuiTypography-root {
+  background-color: #eddbf4;
+}
+
+.edit-design.card-label-item .MuiSvgIcon-root,
+.edit-design.label-item .MuiSvgIcon-root,
+.edit-design .MuiTypography-root .MuiSvgIcon-root {
+  color: #cd8de5;
+}
+
+.edit-product.card-label-item,
+.edit-product.label-item,
+.edit-product .MuiTypography-root {
+  background-color: #bcd9ea;
+}
+
+.edit-product.card-label-item .MuiSvgIcon-root,
+.edit-product.label-item .MuiSvgIcon-root,
+.edit-product .MuiTypography-root .MuiSvgIcon-root {
+  color: #5ba4cf;
+}
+
+.edit-trello.card-label-item,
+.edit-trello.label-item,
+.edit-trello .MuiTypography-root {
+  background-color: #bdecf3;
+}
+
+.edit-trello.card-label-item .MuiSvgIcon-root,
+.edit-trello.label-item .MuiSvgIcon-root,
+.edit-trello .MuiTypography-root .MuiSvgIcon-root {
+  color: #29cce5;
+}
+
+.edit-help.card-label-item,
+.edit-help.label-item,
+.edit-help .MuiTypography-root {
+  background-color: #d3f6e4;
+}
+
+.edit-help.card-label-item .MuiSvgIcon-root,
+.edit-help.label-item .MuiSvgIcon-root,
+.edit-help .MuiTypography-root .MuiSvgIcon-root {
+  color: #6deca9;
+}
+
+.MuiButton-root.save-btn {
+  margin-top: 10px;
+}
+
+/* ends here */
+
+/* dialogue sidebar design starts here */
+
+.dialogue-sidebar {
+  width: 25%;
+  float: right;
+  padding: 22px 10px 0 18px;
+}
+
+.dialogue-sidebar h2 {
+  font-size: 12px;
+  color: #5e6c84;
+}
+
+.sidebar-lists a {
+  display: block;
+  text-decoration: none;
+  color: #5e6c84;
+  background-color: #e7e9ed;
+  margin-bottom: 6px;
+  padding: 4px 7px;
+  border-radius: 3px;
+}
+
+.sidebar-lists a:hover {
+  background-color: #d8dbe0;
+}
+
+.sidebar-lists a span {
+  font-size: 15px;
+}
+
+.MuiSvgIcon-root.icon-size {
+  font-size: 19px;
+  margin-right: 5px;
+}
+
+/* ends here */
+
+/* ends here */
