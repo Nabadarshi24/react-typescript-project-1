@@ -8,7 +8,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import Card from './Card';
 import DoneIcon from '@mui/icons-material/Done';
 import { IconButton, Menu, MenuItem } from '@mui/material';
-import { Box, Modal, Typography } from '@mui/material';
+import { Box, Modal } from '@mui/material';
+import { TypeCardlist, TypeCard } from '../Components/Common.Type';
 
 const style = {
    position: 'absolute',
@@ -22,19 +23,28 @@ const style = {
    p: 1,
 };
 
-const Cardlist = (props) => {
+type TypeCardlistProps = {
+   cardlists: TypeCardlist[];
+   cardlist: TypeCardlist;
+   index: number;
+   handleDeleteCardlistBtn: (id: number) => void;
+   handleCopyBtnClick: (id: number) => void;
+   handleMovelistBtn: (array: TypeCardlist[], from: number, to: number) => void;
+}
+
+const Cardlist = (props: TypeCardlistProps) => {
    const { cardlists, cardlist, handleDeleteCardlistBtn, index, handleCopyBtnClick, handleMovelistBtn } = props;
-   const [cardListTitle, setCardListTitle] = useState('');
+   const [cardListTitle, setCardListTitle] = useState<boolean | ''>('');
    const [editCardlistTitleSave, setEditCardlistTitleSave] = useState(cardlist.title);
-   const [updateCard, setUpdateCard] = useState(null);
+   const [updateCard, setUpdateCard] = useState<boolean | null>(null);
    // const [cardlist.cards, setCards] = useState(cardlist.cards ?? []);
    const [inputValue, setInputValue] = useState('');
-   const [anchorEl, setAnchorEl] = useState(null);
+   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>();
    const open = Boolean(anchorEl);
    const [isModalOpen, setIsModalOpen] = useState(false);
    const [currentValue, setCurrentValue] = useState(index);
 
-   const handleMenuClick = (event) => {
+   const handleMenuClick = (event: React.MouseEvent<HTMLButtonElement>) => {
       setAnchorEl(event.currentTarget);
    };
 
@@ -67,13 +77,13 @@ const Cardlist = (props) => {
          return;
       }
 
-      const newCard = {
+      const newCard: TypeCard = {
          title: inputValue,
          labelTitle: '',
          dateTitle: '',
          labels: [],
          descriptionValue: '',
-         date: '',
+         date: new Date(),
          checklistTitle: '',
          checklists: []
       };
@@ -84,7 +94,7 @@ const Cardlist = (props) => {
       setInputValue('');
    };
 
-   const handleCardDeleteBtn = (index) => {
+   const handleCardDeleteBtn = (index: number) => {
       const newCards = [...cardlist.cards];
       newCards.splice(index, 1);
 
@@ -94,12 +104,12 @@ const Cardlist = (props) => {
       console.log(cardlist.cards);
    };
 
-   const handleTitle = () => {
+   const handleTitle = (e: React.SyntheticEvent) => {
       setCardListTitle(true);
    };
 
-   const handleClose = (e) => {
-      setCardListTitle('');
+   const handleClose = () => {
+      setCardListTitle(false);
 
       cardlist.title = editCardlistTitleSave;
    };
@@ -127,7 +137,7 @@ const Cardlist = (props) => {
                cardListTitle === ''
                   ? <div className="card-title">
                      <span>{cardlist.title}</span>
-                     <ModeEditIcon fontSize='15px' onClick={handleTitle} />
+                     <ModeEditIcon fontSize='small' onClick={handleTitle} />
                      <IconButton
                         id="basic-button"
                         aria-controls={open ? 'basic-menu' : undefined}
@@ -160,7 +170,7 @@ const Cardlist = (props) => {
                         aria-describedby="keep-mounted-modal-description"
                      >
                         <Box sx={style}>
-                           <div id="keep-mounted-modal-title" variant="span" component="h6">
+                           <div id="keep-mounted-modal-title" >
                               Move list
                               <CloseIcon onClick={handleModalClose} className='modal-close-btn' />
                            </div>
@@ -178,7 +188,7 @@ const Cardlist = (props) => {
                                     select
                                     label="Position"
                                     value={currentValue}
-                                    onChange={(e) => setCurrentValue(e.target.value)}
+                                    onChange={(e) => setCurrentValue(parseInt(e.target.value))}
                                     // defaultValue={index}
                                     variant="filled"
                                     fullWidth

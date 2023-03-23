@@ -4,18 +4,19 @@ import AddIcon from '@mui/icons-material/Add';
 import TextField from '@mui/material/TextField';
 import CloseIcon from '@mui/icons-material/Close';
 import Cardlist from './Cardlist';
+import {TypeCardlist} from '../Components/Common.Type';
 
 const CardlistAdd = () => {
-   const [updateAddList, setUpdateAddList] = useState(false);
-   const [cardlists, setCardlists] = useState([]);
+   const [cardlists, setCardlists] = useState<TypeCardlist[]>([]);
    const [inputValue, setInputValue] = useState('');
+   const [updateAddList, setUpdateAddList] = useState(false);
 
    const handleAddBtnClick = () => {
       if (inputValue === "" || inputValue == null) {
          return;
       }
 
-      const newCardlist = {
+      const newCardlist: TypeCardlist = {
          title: inputValue,
          cards: []
       }
@@ -26,20 +27,20 @@ const CardlistAdd = () => {
       setInputValue('');
    };
 
-   const handleCopyBtnClick = (copyIndex) => {
+   const handleCopyBtnClick = (copyIndex: number) => {
       const newCardlist = structuredClone(cardlists[copyIndex]);
       const newCardlists = [...cardlists];
       newCardlists.splice((copyIndex + 1), 0, newCardlist);
       setCardlists(newCardlists);
    };
-   const handleMovelistBtn = (arr, from, to) => {
+   const handleMovelistBtn = (arr: TypeCardlist[], from: number, to: number) => {
       let newArr = [...arr];
       newArr.splice(to, 0, newArr.splice(from, 1)[0]);
 
       setCardlists(newArr);
    };
 
-   const handleDeleteCardlistBtn = (index) => {
+   const handleDeleteCardlistBtn = (index: number) => {
       const newCardlists = [...cardlists];
 
       newCardlists.splice(index, 1);
@@ -56,7 +57,6 @@ const CardlistAdd = () => {
    };
 
    return (
-      console.log({ cardlists }) ||
       <div className='custom-container'>
          {
             cardlists.map((cardlist, index) => (
