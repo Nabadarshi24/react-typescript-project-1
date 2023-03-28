@@ -1,10 +1,9 @@
 import React from 'react';
-import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 
 type TypeTooltipTextProps = {
    TooltipTitle: string;
-   TooltipIcon: OverridableComponent<SvgIconTypeMap<{}, "svg">>
+   TooltipIcon:  React.ReactElement;
 }
 
 const TooltipText = (props: TypeTooltipTextProps) => {

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link as RouterLink } from "react-router-dom";
 import Dialog, { DialogProps } from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -285,7 +286,7 @@ const CardDetails = (props: TypeCardDetailsProps) => {
                               </Button>
                            </span>
                            <Button
-                              varient='outlined'
+                              variant='outlined'
                               size='small'
                               onClick={handleDescriptionCancel}>
                               Cancel
@@ -357,7 +358,7 @@ const CardDetails = (props: TypeCardDetailsProps) => {
 
                      {
                         showAddChecklistButton === true
-                           ? <Button onClick={handleShowAddChecklistButton} className='add-item-btn' varient='outlined'>Add an item</Button>
+                           ? <Button onClick={handleShowAddChecklistButton} className='add-item-btn' variant='outlined' >Add an item</Button>
                            : <div className='checklist-title-edit'>
                               <TextField
                                  value={checklistValue}
