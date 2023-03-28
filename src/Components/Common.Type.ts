@@ -1,7 +1,7 @@
 export type TypeCardlist = {
     title: string | number;
     cards: TypeCard[];
- }
+}
 
 export type TypeCard = {
     title: string;
@@ -24,4 +24,11 @@ export type TypeLabels = {
 export type TypeChecklists = {
     isChecked: boolean;
     name: string;
+}
+
+export type TypeLabelItem = {
+    id: string;
+    value: string;
+    className: string;
+    label: string;
 }

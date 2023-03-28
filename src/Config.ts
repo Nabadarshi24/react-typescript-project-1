@@ -1,5 +1,6 @@
 // import React from 'react'
-    export const labelItems = [
+    
+export const labelItems = [
         {
             id:'COPY',
             value: 'COPY',

@@ -2,7 +2,12 @@ import React from 'react';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 
-const TooltipText = (props) => {
+type TypeTooltipTextProps = {
+   TooltipTitle: string;
+   TooltipIcon: OverridableComponent<SvgIconTypeMap<{}, "svg">>
+}
+
+const TooltipText = (props: TypeTooltipTextProps) => {
    const { TooltipTitle, TooltipIcon } = props;
    return (
       <Tooltip className='customize-icon-btn' title={TooltipTitle}>

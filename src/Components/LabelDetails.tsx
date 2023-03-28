@@ -4,26 +4,32 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import CircleIcon from '@mui/icons-material/Circle';
 import Button from '@mui/material/Button';
-import Config, { labelItems } from '../Config';
+import { labelItems } from '../Config';
+import {TypeCard, TypeLabels} from './Common.Type'
 
-const LabelDetails = (props) => {
+type TypeLabelDetailsProps = {
+   card: TypeCard;
+   onSave: () => void;
+}
+
+const LabelDetails = (props: TypeLabelDetailsProps) => {
    const { card, onSave } = props;
-   const [labels, setLabels] = useState(card.labels);
+   const [labels, setLabels] = useState<TypeLabels[]>([]);
 
    console.log(labels);
 
-   const getLabelValue = (e) => {
+   const getLabelValue = (e:  React.ChangeEvent<HTMLInputElement>) => {
       const { value, checked } = e.target;
       // const index = labels.indexOf(value);
 
       // console.log(value, checked)
 
-      let newLabels = [];
+      let newLabels: TypeLabels[] = [];
       if (checked) {
-         newLabels = [...labels, value];
+         newLabels = [...labels, JSON.parse(value)];
       }
       else {
-         newLabels = labels.filter((label) => label !== value)
+         newLabels = labels.filter((label) => label.label !== label.value)
       }
 
       setLabels(newLabels);
@@ -42,7 +48,7 @@ const LabelDetails = (props) => {
                   labelItems.map((labelItem, index) => (
                      <FormControlLabel
                         key={index}
-                        control={<Checkbox checked={labels.includes(labelItem.value)} onChange={(e) => getLabelValue(e)} />}
+                        control={<Checkbox checked={labels.includes(JSON.parse(labelItem.value))} onChange={(e) => getLabelValue(e)} />}
                         value={labelItem.value}
                         label={<><CircleIcon />{labelItem.label}</>}
                         className={labelItem.className}

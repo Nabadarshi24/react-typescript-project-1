@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import Dialog from '@mui/material/Dialog';
+import Dialog, { DialogProps } from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 // import ModeEditIcon from '@mui/icons-material/ModeEdit';
@@ -10,14 +10,22 @@ import CardDetails from './CardDetails';
 import Button from '@mui/material/Button';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import CircleIcon from '@mui/icons-material/Circle';
-import Config, { labelItems } from '../Config';
+import { labelItems } from '../Config';
 import TooltipText from './TooltipText';
+import { TypeCard, TypeCardlist, TypeLabelItem } from './Common.Type';
 
-const Card = (props) => {
+type TypeCardProps = {
+   cardlist: TypeCardlist;
+   card: TypeCard;
+   handleCardDeleteBtn: (id: number) => void;
+   index: number;
+}
+
+const Card = (props: TypeCardProps) => {
    const { card, cardlist, handleCardDeleteBtn, index } = props;
    const [open, setOpen] = useState(false);
    const [fullWidth, setFullWidth] = useState(true);
-   const [maxWidth, setMaxWidth] = useState('md');
+   const [maxWidth, setMaxWidth] = useState<DialogProps['maxWidth']>('md');
    // const [descriptionValue, setDescriptionValue] = useState('');
 
    // const callBack = (descriptionValue) => {
@@ -39,7 +47,7 @@ const Card = (props) => {
                {
                   card.labels.map((label, index) => {
                      // console.log({index: index}, {lbI: labelItems[index].label});
-                     const selectedLabel = labelItems.find(labelItem => labelItem.value === label);
+                     const selectedLabel = labelItems.find(labelItem => labelItem.value === labelItem.label)!;
                      return <span
                         className={`card-label-item ${selectedLabel.className}`}
                         key={index}
@@ -49,7 +57,7 @@ const Card = (props) => {
                      </span>
                   })
                }
-               <DeleteOutlinedIcon onClick={() => handleCardDeleteBtn(index)} className='card-delete-icon' fontSize='15px' />
+               <DeleteOutlinedIcon onClick={() => handleCardDeleteBtn(index)} className='card-delete-icon' fontSize='small' />
             </div>
 
             <div className="card-title">

@@ -11,8 +11,17 @@ import { IconButton, Menu, MenuItem } from '@mui/material';
 import { Box, Modal } from '@mui/material';
 import { TypeCardlist, TypeCard } from '../Components/Common.Type';
 
+type TypeCardlistProps = {
+   cardlists: TypeCardlist[];
+   cardlist: TypeCardlist;
+   index: number;
+   handleDeleteCardlistBtn: (id: number) => void;
+   handleCopyBtnClick: (id: number) => void;
+   handleMovelistBtn: (array: TypeCardlist[], from: number, to: number) => void;
+}
+
 const style = {
-   position: 'absolute',
+   position: 'absolute' as 'absolute',
    top: '6%',
    left: '15%',
    transform: 'translate(-6%, -15%)',
@@ -22,15 +31,6 @@ const style = {
    boxShadow: 24,
    p: 1,
 };
-
-type TypeCardlistProps = {
-   cardlists: TypeCardlist[];
-   cardlist: TypeCardlist;
-   index: number;
-   handleDeleteCardlistBtn: (id: number) => void;
-   handleCopyBtnClick: (id: number) => void;
-   handleMovelistBtn: (array: TypeCardlist[], from: number, to: number) => void;
-}
 
 const Cardlist = (props: TypeCardlistProps) => {
    const { cardlists, cardlist, handleDeleteCardlistBtn, index, handleCopyBtnClick, handleMovelistBtn } = props;
@@ -175,10 +175,10 @@ const Cardlist = (props: TypeCardlistProps) => {
                               <CloseIcon onClick={handleModalClose} className='modal-close-btn' />
                            </div>
                            <div
-                              // component="form"
-                              sx={{
-                                 '& .MuiTextField-root': { m: 1, width: '25ch' },
-                              }}
+                           // component="form"
+                           // sx={{
+                           //    '& .MuiTextField-root': { m: 1, width: '25ch' },
+                           // }}
                            // noValidate
                            // autoComplete="off"
                            >

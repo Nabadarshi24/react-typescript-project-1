@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Dialog from '@mui/material/Dialog';
+import Dialog, { DialogProps } from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import LaptopMacIcon from '@mui/icons-material/LaptopMac';
@@ -17,13 +17,19 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import LabelDetails from './LabelDetails';
 import CircleIcon from '@mui/icons-material/Circle';
-import Config, { labelItems } from '../Config';
+import { labelItems } from '../Config';
+import { TypeCardlist, TypeCard } from './Common.Type';
 
-const CardDetails = (props) => {
+type TypeCardDetailsProps = {
+   cardlist: TypeCardlist;
+   card: TypeCard;
+}
+
+const CardDetails = (props: TypeCardDetailsProps) => {
    const { card, cardlist } = props;
    const [open, setOpen] = useState(false);
    const [fullWidth, setFullWidth] = useState(true);
-   const [maxWidth, setMaxWidth] = useState('xs');
+   const [maxWidth, setMaxWidth] = useState<DialogProps['maxWidth']>('xs');
    const [title, setTitle] = useState(card.title);
    const [editCardTitle, setEditCardTitle] = useState(false);
    const [openLabel, setOpenLabel] = useState(card.labelTitle.length > 0);
@@ -35,8 +41,8 @@ const CardDetails = (props) => {
    const [isEditChecklistTitle, setIsEditChecklistTitle] = useState(false);
    const [checklists, setChecklists] = useState(card.checklists);
    const [checklistValue, setChecklistValue] = useState('');
-   const [showAddChecklistButton, setAddChecklistButton] = useState(true);
-   const [description, setDescription] = useState(null);
+   const [showAddChecklistButton, setAddChecklistButton] = useState<boolean>();
+   const [description, setDescription] = useState<boolean | null>(null);
    const [descriptionValue, setDescriptionValue] = useState(card.descriptionValue);
 
 
@@ -79,7 +85,7 @@ const CardDetails = (props) => {
       card.checklists = newChecklists;
    };
 
-   const handleChecklistItemDelete = (index, e) => {
+   const handleChecklistItemDelete = (index: number, e: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
       e.preventDefault();
       const newChecklists = [...checklists];
       newChecklists.splice(index, 1);
@@ -88,7 +94,7 @@ const CardDetails = (props) => {
       card.checklists = newChecklists;
    };
 
-   const handleChange = (index, e) => {
+   const handleChange = (index: number, e: React.ChangeEvent<HTMLInputElement>) => {
       const newChecklists = [...checklists];
       newChecklists[index].isChecked = e.target.checked;
 
@@ -195,13 +201,13 @@ const CardDetails = (props) => {
                            {
                               card.labels.map((label, index) => {
                                  // console.log({index: index}, {lbI: labelItems[index].label});
-                                 const selectedLabel = labelItems.find(labelItem => labelItem.value === label);
+                                 const selectedLabel = labelItems.find(labelItem => labelItem.value === labelItem.label);
                                  return <span
-                                    className={`label-item ${selectedLabel.className}`}
+                                    className={`label-item ${selectedLabel!.className}`}
                                     key={index}
                                  >
                                     <CircleIcon className='icon-size' />
-                                    {selectedLabel.label}
+                                    {selectedLabel!.label}
                                  </span>
                               })
                            }
@@ -223,7 +229,7 @@ const CardDetails = (props) => {
                         <div className="date-container">
                            <div className="date-container-btn">
                               <span className='margin-right'>Feb 14, 2024</span>
-                              <span><EditIcon fontSize='15px' /></span>
+                              <span><EditIcon fontSize='small' /></span>
                            </div>
                         </div>
                      </>
